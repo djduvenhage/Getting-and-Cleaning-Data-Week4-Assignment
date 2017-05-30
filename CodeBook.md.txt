@@ -1,0 +1,95 @@
+
+CodeBook- Instructions
+######################
+
+Important: set your working directory before running the code in line 6 of the code:
+		# Set working directory
+		#====== >setwd("yourWORKINGDIRCTORYhere")
+
+The code loads the library "reshape2"  which is used to "melt and decast" the original
+data table  to the tidy average mean data table:
+		# Loading libraries needed to "melt" and "arrange" table and columns respectively
+		library (reshape2)
+		library (dplyr)
+
+The script creates and assigns a work directory and folder to download, unzip and, write data to        
+		# Create work folder to extract and write data to
+		if(!file.exists("./Assignment4")){dir.create("./Assignment4")}
+		fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+
+		# Download raw data files
+		download.file(fileUrl,destfile="./assignment4/Dataset.zip")
+
+		# Unzip raw dataSet to /Assignment4 directory
+		unzip(zipfile="./Assignment4/Dataset.zip",exdir="./Assignment4")
+
+CodeBook- Variables 
+###################
+
+		# Placeholders for reading txt test tables
+		txt_test_x 
+		txt_test_y 
+		txt_test_subject 
+
+		# Placeholders for Reading txt train tables
+		txt_train_x 
+		txt_train_y 
+		txt_train_subject
+
+		# Placeholders for Reading "features" and  "activity label" information tables
+		txt_features 
+		txt_lables
+
+		# Place holders for Merging test, train, and combined data 
+		test_merge
+		train_merge
+		combinedTable
+
+		# Place holders for Extracting "mean" & "standard deviation", and Combining "mean & standard deviation" data
+		mean_value
+		stddev_value
+                combinedDataSet
+
+		# Place holders for Extracting and Cleaning the "average / mean" only data 
+		mean_stddev_labeled
+		average_mean_labeled
+
+CodeBook- General Code Function
+###############################
+
+		After setting the working directory and executing the script, the code will:
+		1. check for and create a working folder.
+		2. download the raw data file from the url supplied.
+		3. unzip the raw data file in the working environment chose.
+		4. Read the X_ & y_ & subject_ test and train files into variables: txt_test_x, txt_test_y, txt_test_subject, txt_train_x, txt_train_y, txt_train_subject
+		5. Read the "features" and  "activity label" information tables into variables: txt_features, txt_lables 
+		6. Assign column names to txt_test_x, txt_test_y, txt_test_subject, txt_train_x, txt_train_y, txt_train_subject, txt_features, txt_lables, 
+		7. Merge test and train data with column order: "activityID, "subjectID", "subjectID" into variables test_merge, train_merge
+		8. Create a single table combining test_merge and train_merge into "combinedTable".
+		9. Extract the columns with "mean" & "standard deviation" data into "mean_value" and "stddev_value" using the grep function.
+		10. Create a single table containing the "mean_value and stddev_value" data with column IDs into combinedDataSet.
+		11. Reshape the dataset, using the "melt fucntion" from the "reshape2 library" into "mean_stddev_labeled". Basically the dataset is "melt" so that each row 
+                    is a unique id-variable combination.  Then the "melt" dataset is "cast" into the shape needed into "average_mean_labeled"
+		12. The data set is then made tidy assigning the "activity lables", renaming the column "value" to "exerciseValue, and ordering the data first to "subjectId" 
+                    and then "activityId".
+		13. Finally the tidy data is printed in the "average_mean_labeled.txt" file to the "./Assignment4/Results" folder.
+                    [Note: I have left two additional "write.table" scripts. The first prints with no tab between columns and the second a "capture.output" allows for two tabs
+                          between columns]
+		    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

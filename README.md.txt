@@ -1,0 +1,25 @@
+Getting and Cleaning Data - Course Project, Assignment Week 4:
+
+	   This repository hosts the R code and documentation files for the Data Science's track course "Getting and Cleaning data", 
+           available in coursera.
+
+	   The goal is to prepare a tidy data set that can be used for later analysis.
+
+	   The dataset being used is from the Human Activity Recognition database:  
+                                (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+
+
+Files:
+
+IMPORTANT: The code requires the user to set their own working directory in line 6 of the code before running it.
+
+	   CodeBook.md describes the variables, the data, and any transformations or work that was performed to clean up the data.
+	    
+           run_analysis.R contains the code to perform the analyses.
+
+	   The code can be copied into R or R-studio, the working directory entered into the code and run.
+	
+	   The output data file is called average_mean_labeled.txt and can befound in the working directory under: "./Assignment4/Results"
+	   The data file only shows a subset as the output, as printing was done introducing spaces so individual column data is 
+           clearly seperated. 
+           A copy of the output data file is uploaded in the course project's form.
